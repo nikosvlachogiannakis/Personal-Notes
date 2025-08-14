@@ -8,8 +8,6 @@ Nikos Vlachogiannakis, 2025
 
 # Table of Contents
 
---
-
 <div style="display: flex; text-align: left;">
 
 <div style="flex: 1;">
