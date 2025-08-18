@@ -8,6 +8,8 @@ Nikos Vlachogiannakis, 2025
 
 # Table of Contents
 
+--
+
 <div style="display: flex; text-align: left;">
 
 <div style="flex: 1;">
@@ -25,12 +27,19 @@ Nikos Vlachogiannakis, 2025
 - [SSH Connection to a remote machine](#/11)
 - [Create & Organize Notes](#/12)
 - [Connected Papers in a Visual Graph](#/13)
+
+</div>
+
+<div style="flex: l;">
+
 - [Extra](#/14)
   - [Visualize Probabilty & Statistics](#/14/1)
   - [Visualize Data Structures](#/14/2)
   - [Advanced Calculators](#/14/3)
   - [View non-printable unicode characters](#/14/4)
   - [Blind Typing](#/14/5)
+  - [Remote Jobs](#/14/6)
+  - [A Lot of AIs](#/14/7)
 
 </div>
 
@@ -128,6 +137,14 @@ home exercise.
 
 - [HackerRank](https://www.hackerrank.com/)
 
+- [CodeChef](https://www.codechef.com/)
+
+- [Coding Ninja](https://www.codingninjas.com/)
+
+- [Coding Wars](https://www.codewars.com/)
+
+- [Interview Bit](https://www.interviewbit.com/)
+
 ---
 
 ## Toolkit for converting PDFs and other image-based document formats into clean, readable, plain text format
@@ -140,9 +157,9 @@ home exercise.
 
 # SSH Connection to a remote machine
 
-- [WinSCP (Does not contain a terminal)](https://winscp.net/eng/index.php)
+- [WinSCP (Does <span style="color:red">not contain</span> a terminal)](https://winscp.net/eng/index.php)
 
-- [Bitvise (Contains a terminal)](https://bitvise.com/)
+- [Bitvise (<span style="color:lime">Contains</span> a terminal)](https://bitvise.com/)
 
 ---
 
@@ -172,6 +189,8 @@ home exercise.
 
 - [Visualization Tool](https://csvistool.com/)
 
+- [Staying](https://staying.fun/en)
+
 --
 
 # Advanced Calculators
@@ -193,3 +212,15 @@ home exercise.
 # Blind Typing
 
 - [TypingClub](https://www.edclub.com/sportal/)
+
+--
+
+# Remote Jobs
+
+- [Remoteok](https://remoteok.com/)
+
+--
+
+# A Lot of AIs
+
+- [Hugging Face](https://huggingface.co/)
