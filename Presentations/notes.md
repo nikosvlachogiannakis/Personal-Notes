@@ -297,6 +297,8 @@ Now, all the changes you made are uploaded in your repository on Github!
 
 # Otherwise, Use LazyGit
 
+After the <span style="color:lime">successful installation</span> of LazyGit:
+
 - Inside the folder you want to push, write:
 <pre><code class="language-bash" data-trim>
 lazygit
@@ -320,7 +322,7 @@ have changes and in order to include each file in your push Press
 - When you have large files(e.g. .mp4 files) that are stored in git-lfs and try to clone
  a repository from GitHub, you have to run 
 <code class="language-bash " data-trim style="color:green;">git lfs pull</code> in 
-rder to get the actual video and not a pointer file to it.
+order to get the actual video and not a pointer file to it.
 
 - Otherwise, if you want to replace the video, make sure to do it before running git 
 add, using a proper .mp4 file (e.g., downloaded from the web)
@@ -1155,8 +1157,9 @@ To change the theme, edit index.html and modify this line:
 <link rel="stylesheet" href="dist/theme/black.css" id="theme">
 </code></pre>
 
-You can try other themes like white.css, 
-night.css, moon.css,etc.
+You can try other themes like <span style="color: skyblue;">white.css</span>, 
+<span style="color: skyblue;">night.css</span>, <span style="color: skyblue;">
+moon.css</span>, etc.
 
 --
 
@@ -1197,11 +1200,11 @@ Markdown files for every presentation you make.
 
 - Go to index.html
 - Find:
-<pre><code class="language-markdown" data-trim>
+<pre><code class="language-html" data-trim>
 data-markdown="slides.md"
 </code></pre>
 - Change it to:
-<pre><code class="language-markdown" data-trim>
+<pre><code class="language-html" data-trim>
 data-markdown="Presentations/notes.md"
 </code></pre>
 
