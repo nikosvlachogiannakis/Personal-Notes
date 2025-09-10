@@ -224,3 +224,15 @@ home exercise.
 # A Lot of AIs
 
 - [Hugging Face](https://huggingface.co/)
+
+--
+
+# PDF Tools
+
+- [PDF24 Tools](https://tools.pdf24.org/en/all-tools)
+
+--
+
+# Developer Documents
+
+- [DevDocs](https://devdocs.io/)
