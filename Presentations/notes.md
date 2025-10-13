@@ -1,4 +1,4 @@
-<!-- night_skyblue.css Theme -->
+<!-- white.css Theme -->
 
 # Notes
 
@@ -14,70 +14,52 @@ Nikos Vlachogiannakis, 2025
 
 <div style="flex: 1;">
 
-1. [Connect Remotely with SSH](#/2)
-    - [Password](#/2/1)
-    - [Passwordless](#/2/2)
-2. [Create Repository & Git Push](#/3)
-    - [Manually](#/3/1)
-    - [Using gh](#/3/2)
-    - [Push Changes on GitHub](#/3/3)
-    - [LazyGit](#/3/4)
-    - [Check GitHub Connection](#/3/5)
-    - [Additional Information](#/3/6)
-      - [What is SSH?](#/3/7)
-      - [What is gh?](#/3/7)
-      - [What is LazyGit?](#/3/8)
-3. [Create a Project and use Poetry](#/4)
-    - [Step-by-Step Process](#/4/1)
-    - [Additional Information](#/4/5)
-      - [What is Poetry?](#/4/6)
-      - [TOML File](#/4/7)
+1. [<span style="color:darkred">Connect Remotely with SSH</span>](#/2)
+    - [With Password](#/2/1)
+    - [Passwordless Login](#/2/2)
+    - [Test Passwordless Login](#/2/5)
+2. [<span style="color:darkred">Create Repository on GitHub & Push Changes</span>](#/3)
+    - [Option 1: Clone from GitHub](#/3/1)
+    - [Option 2: Local to GitHub](#/3/2)
+    - [Option 3: Using GitHub CLI (gh)](#/3/3)
+    - [Token Expiry](#/3/4)
+    - [Push Changes on GitHub](#/3/7)
+    - [Using LazyGit](#/3/8)
+    - [Skip Pre-Commit Hooks](#/3/9)
+    - [Git LFS Notes](#/3/10)
+    - [GitHub Connection Check](#/3/11)
+    - [Additional Information](#/3/12)
 
 </div>
 
 <div style="flex: 1;">
 
-4. [Advanced Workflow](#/5)
-    - [Step By Step Process](#/5/1)
-    - [Create Documentation using Sphinx](#/5/10)
-    - [Additional Information](#/5/14)
-      - [What is pre-commit?](#/5/15)
-      - [Why use it?](#/5/16)
-      - [Common Tools](#/5/17)
-      - [How it works](#/5/18)
-      - [Python REPL](#/5/19)
-      - [YAML File](#/5/20)
-      - [Traceback](#/5/21)
-5. [Advanced Workflow <span style="color:lime;">Better</span>](#/6)
-    - [Pre-commits](#/6/1)
-    - [Install & Set Up](#/6/2)
-    - [Usage](#/6/3)
-    - [Linters & Formatters](#/6/4)
-    - [Numpy Docstrings](#/6/6)
-    - [Generate Documentation](#/6/8)
-    - [Additional Information](#/6/15)
-      - [.rst File](#/6/16)
+3. [<span style="color:darkred">Create a Project with Poetry</span>](#/4)
+    - [Option 1: Use Poetry on Existing Project](#/4/2)
+    - [Option 2: Create New Project with Poetry](#/4/3)
+    - [Additional Information](#/4/7)
+4. [<span style="color:darkred">Advanced Workflow</span>](#/5)
+    - [Organized Python Project with pre-commit, formatters & linters](#/5/1)
+    - [Documentation with Sphinx](#/5/10)
+    - [Additional Information](#/5/13)
 
 </div>
 
 <div style="flex: 1;">
 
-6. [Reveal.js Presentation](#/7)
-    - [Install Node.js](#/7/1)
-    - [Get a Template](#/7/2)
-    - [Change Theme](#/7/4)
-    - [Slides Transition](#/7/5)
-    - [Change Presentations](#/7/6)
-    - [Load Slides Locally](#/7/7)
-    - [Hosting Slides on GitHub Pages](#/7/8)
-    - [Public vs Private Repos and Ways to Share Slides](#/7/10)
-    - [Managing Large Files with Git LFS](#/7/13)
-    - [Additional Information](#/7/16)
-      - [What is Reveal.js?](#/7/17)
-      - [HTML File](#/7/18)
-      - [CSS File](#/7/19)
-      - [Markdown File](#/7/20)
-      - [JSON File](#/7/21)
+5. [<span style="color:darkred">Reveal.js Presentation</span>](#/6)
+    - [Install Node.js](#/6/1)
+    - [Get a Template](#/6/2)
+    - [Editing Slides](#/6/3)
+    - [Customizing Theme](#/6/4)
+    - [Slide Transitions](#/6/5)
+    - [Change Markdown File](#/6/6)
+    - [Load Slides Locally](#/6/7)
+    - [Hosting on GitHub Pages](#/6/8)
+    - [GitHub Pages Troubleshooting](#/6/9)
+    - [Export to PDF](#/6/10)
+    - [Managing Large Files with Git LFS](#/6/11)
+    - [Additional Information](#/6/13)
 
 </div>
 
@@ -91,33 +73,30 @@ Nikos Vlachogiannakis, 2025
 
 <div style="flex: l;">
 
-7. [Git Commands](#/8)
-    - [Git Cheatsheet](#/8/1)
-    - [Version Control](#/8/3)
-    - [Branching & Merging](#/8/14)
-    - [Bug Tracking & Fixing](#/8/25)
-    - [Git Hooks (Automation)](#/8/36)
+6. [<span style="color:darkred">Git Commands Cheat Sheet</span>](#/7)
 
-8. [Store images as PDFs](#/9)
-    - [On Windows](#/9/1)
-    - [On Linux](#/9/2)
+7. [<span style="color:darkred">Store Screenshots as PDF</span>](#/8)
+    - [Windows Methods](#/8/1)
+    
+    - [Linux Methods](#/8/2)
 
 </div>
 
-<div style="flex: l">
+<div style="flex: l;">
 
-9. [Cheat Sheet](#/10)
-    - [File & Directory Management](#/10/1)
-    - [File Viewing & Editing](#/10/2)
-    - [Search & Navigation](#/10/3)
-    - [System Utilities](#/10/4)
-    - [Package Management(APT)](#/10/5)
-    - [Python & pyenv](#/10/6)
-    - [SSH & Remote Access](#/10/7)
-    - [FTP & File Transfer](#/10/8)
-    - [Shortcuts](#/10/9)
-    - [Git Essentials - Part 1](#/10/10)
-    - [Git Essentials - Part 2](#/10/11)
+8. [<span style="color:darkred">Cheat Sheet Reference</span>](#/9)
+    - [File & Directory Management](#/9/1)
+    - [File Viewing & Editing](#/9/2)
+    - [Search & Navigation](#/9/3)
+    - [System Utilities](#/9/4)
+    - [Package Management](#/9/5)
+    - [Python & pyenv](#/9/6)
+    - [SSH & Remote Access](#/9/7)
+    - [FTP & File Transfer](#/9/8)
+    - [Shortcuts](#/9/9)
+    - [Git Essentials - Part 1](#/9/10)
+    - [Git Essentials - Part 2](#/9/11)
+
 
 </div>
 
@@ -135,6 +114,11 @@ Nikos Vlachogiannakis, 2025
 ssh user@remote-server
 </code></pre>
 
+
+Then you must add the password of the remote machine and you are all set!
+
+***Note***: The first time you connect, SSH may ask you to confirm the server’s authenticity — type `yes` and press Enter.
+
 --
 
 # Passwordless Login
@@ -143,13 +127,13 @@ ssh user@remote-server
 
 ## 1. Generate an SSH key(If you don't have one)
 
-Locally, on your computer, open Terminal(for Windows, Git Bash):
+Locally, on your computer, open Terminal(if you have Windows open *Git Bash*)  and write:
 
 <pre><code class="language-bash" data-trim>
 ssh-keygen -t ed25519 -C "your_email@example.com"
 </code></pre>
 
-- Press Enter to accept the default path: C:\Users\YourName\.ssh\id_ed25519
+- Press Enter to accept the default path: C:\Users\username\.ssh\id_ed25519
 
 - Choose no passphrase to enable passwordless login
 
@@ -178,15 +162,23 @@ Now you can simply run:
 ssh myserver
 </code></pre>
 
+--
+
 ## 4. Test the Passwordless SSH Login
-<pre><code class="language-bash" data-trim>
+Run:
+```bash
 ssh user@remote-server
-</code></pre>
+```
+OR
+```bash
+ssh myserver
+```
+
 You should be logged in without a password.
 
-### Log Out
+### Log Out From The Remote Machine
 
-Press <span style="color:skyblue">Ctrl + d</span>
+Press <span style="color:blue">Ctrl + d</span> or <span style="color:blue">exit</span>
 
 ---
 
@@ -195,56 +187,64 @@ Press <span style="color:skyblue">Ctrl + d</span>
 
 --
 
-# 1. Create a repo on GitHub and clone it locally
+# Option 1. Create a repo on GitHub and clone it locally
 
-- Create a Repository on GitHub(either public or private) with a ReadMe file
-
-- Create a folder:
+- Create a Repository on GitHub (either public or private) <span style="color:lime">with a README.md file</span>
+- Go to the path where you want to have your project:
 <pre><code class="language-bash" data-trim>
-mkdir folder_name
+cd path
 </code></pre>
-- Go to its path:
-<pre><code class="language-bash" data-trim>
-cd folder_name
-</code></pre>
-- Copy the link of the SSH key(ssh_key) from your repository in GitHub and write the 
-following in terminal:
+- Copy the link of the SSH key (ssh_key) from your repository in GitHub and write the following in terminal:
 <pre><code class="language-bash" data-trim>
 git clone ssh_key
 </code></pre>
-- You can open the file we cloned in VScode and work on it.
+- You can open the file we cloned in VS Code and work on it.
 
 --
 
-# 2. Create a repo locally and push to GitHub
+# Option 2. Create a File locally and push to GitHub
 
-- Go to GitHub and create a repo. Name it the same as your local repo and do not create 
-a README.md (you already have one locally). You want your repo to be completely empty.
-- Once the the repo is created, go to Code → SSH and copy the repo SSH link.
+- Go to GitHub and create a repo. Name it the same as your local repo and <span style="color:red">do NOT create a README.md</span> (you already have one locally). You want your repo to be completely empty.
+- Once the repo is created, go to Code → SSH and copy the repo SSH link.
 - Locally, on your cmd/bash do:
+
+<pre><code class="language-bash" data-trim>
+git init
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
+git add .
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
+git commit -m "Initial commit"
+</code></pre>
+
 <pre><code class="language-bash" data-trim>
 git remote add origin ssh_link-you-copied
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
 git branch -M main
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
 git push -u origin main
 </code></pre>
 
-Your commits should be pushed to GitHub and your local repo is connected to the GitHub 
-repo.
+Your commits should be pushed to GitHub, and your local repo is connected to the GitHub repo.
 
 --
 
-# 3. Using GitHub CLI (gh)
+# Option 3. Using GitHub CLI (gh)
 
-- Install [GitHub CLI](https://github.com/cli). 
-After successful installation of gh(install shell repo and gh will be installed too), 
-asks for a token. Follow the link and create a token with the proposed permissions. 
-After this action you can use gh to do things in Github. The next step creates a new 
-ssh key and uploads it to Github using the gh tool. Instead of copying the contents of 
-the pub file, going to Github settings and creating a new key entry, this is done 
-automatically using gh.
-- Connect it to you GitHub with 
-<code class="language-bash" style="display: inline-block;background: #222;" data-trim>gh
- auth login</code> and follow the promts
+This option uses <span style="color:cyan">HTTPS protocol</span> instead of SSH.
+
+- Install [GitHub CLI](https://github.com/cli). After successful installation of `gh`, it asks for a token. Follow the link and create a token with the proposed permissions. After this action, you can use `gh` to do things in GitHub.
+- Connect it to your GitHub with the following command and follow the prompts
+<pre><code class="language-bash" data-trim>
+gh auth login
+</code></pre>
 - To create a new repo in the current folder, do:
 <pre><code class="language-bash" data-trim>
 git init
@@ -254,12 +254,75 @@ gh repo create REPO_NAME --public --source=. --push
 </code></pre>
 - Clone a repo:
 <pre><code class="language-bash" data-trim>
-gh repo clone arampatzis/shell
+gh repo clone repo_name
 </code></pre>
-- See all your repos in Github:
+- See all your repos in GitHub:
 <pre><code class="language-bash" data-trim>
 gh repo list
 </code></pre>
+
+--
+
+# Important Note: Token Expiry
+
+If that token <span style="color:red">expires</span> you need to run the following to make sure the token is updated:
+
+##### In the remote machines' Terminal:
+<pre><code class="language-bash" data-trim>
+gh auth login
+</code></pre>
+
+##### Then it will ask:
+<pre><code>
+? Where do you use GitHub?
+</code></pre>
+Select:
+<pre><code>
+GitHub.com
+</code></pre>
+
+Continue... $\Downarrow$
+
+--
+
+##### Then it will ask:
+<pre><code>
+? What is your preferred protocol for Git operations on this host?
+</code></pre>
+Select:
+<pre><code>
+HTTPS
+</code></pre>
+
+##### Question:
+<pre><code>
+? Authenticate Git with your GitHub credentials?
+</code></pre>
+Select:
+<pre><code>
+Yes
+</code></pre>
+
+Continue... $\Downarrow$
+
+--
+
+##### Question:
+<pre><code>
+? How would you like to authenticate GitHub CLI?
+</code></pre>
+Select:
+<pre><code>
+Paste an authentication token
+</code></pre>
+
+##### Then on the following:
+<pre><code>
+? Paste your authentication token:
+</code></pre>
+Paste the token you (re-)generated and copied from GitHub.
+
+Then it will say that you are logged in as `account_name` or something similar.
 
 --
 
@@ -272,26 +335,31 @@ cd repository_name
 <pre><code class="language-bash" data-trim>
 git status
 </code></pre>
-With this command we can see all changed files which are 
-<span style="color:red">red</span>.
+
+With this command, we can see all changed files which are <span style="color:red">red</span>.
 
 So, we use:
 <pre><code class="language-bash" data-trim>
-git add (all files on red separated by comma)
+git add (all files on red separated by space)
 </code></pre>
-<span style="color:skyblue">OR</span>
+
+<span style="color:red">OR</span>
+
 <pre><code class="language-bash" data-trim>
 git add .
 </code></pre>
+
 Then:
 <pre><code class="language-bash" data-trim>
 git commit -m "This is a message explaining what changes we made"
 </code></pre>
+
 Finally:
 <pre><code class="language-bash" data-trim>
 git push
 </code></pre>
-Now, all the changes you made are uploaded in your repository on Github!
+
+Now, all the changes you made are uploaded in your repository on GitHub!
 
 --
 
@@ -303,42 +371,64 @@ After the <span style="color:lime">successful installation</span> of LazyGit:
 <pre><code class="language-bash" data-trim>
 lazygit
 </code></pre>
-- A new window will appear where, in the upper left side it will be all the files that 
-have changes and in order to include each file in your push Press 
-<span style="color:skyblue">Spacebar</span>.
 
-- After selecting all the files we want to push, Press 
-<span style="color:skyblue">c</span>
- and write what changes you have made and then Press 
- <span style="color:skyblue">Enter</span>.
+- A new window will appear where, in the upper left side, all the files that have changes will be displayed. In order to include each file in your push, press <span style="color:blue">Spacebar</span>.
 
-- To push these changes in your GitHub Press <span style="color:skyblue">Shift+P</span>
-- To Exit LazyGit Press <span style="color:skyblue">q</span>
+- After selecting all the files you want to push, press <span style="color:blue">c</span> and write what changes you have made, then press <span style="color:blue">Enter</span>.
+
+- To push these changes to your GitHub, press <span style="color:blue">Shift+P</span>.
+
+- To exit LazyGit, press <span style="color:blue">q</span>.
 
 --
 
-# Important Note
+# Skip Pre-Commit Hooks
 
-- When you have large files(e.g. .mp4 files) that are stored in git-lfs and try to clone
- a repository from GitHub, you have to run 
-<code class="language-bash " data-trim style="color:green;">git lfs pull</code> in 
-order to get the actual video and not a pointer file to it.
+Use this when you intentionally want to skip automated checks like linting or formatting hooks:
 
-- Otherwise, if you want to replace the video, make sure to do it before running git 
-add, using a proper .mp4 file (e.g., downloaded from the web)
+<pre><code class="language-bash" data-trim>
+git status
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
+git add .
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
+git commit -m "a message" --no-verify
+</code></pre>
+
+<pre><code class="language-bash" data-trim>
+git push --no-verify
+</code></pre>
+
+That way the pre-commit does ***not*** run and it pushes the changes just fine and it does not ask you for username or password.
 
 --
 
-# GitHub Connection
+# Git LFS Notes
+
+- When you have large files (e.g., `.mp4` files) that are stored in git-lfs and try to clone a repository from GitHub, you have to install and initialize Git LFS and then run:
+<pre><code class="language-bash" data-trim>
+git lfs pull
+</code></pre>
+
+- Otherwise, if you want to replace the video, make sure to do it before running `git add`, using a proper `.mp4` file (e.g., downloaded from the web).
+
+--
+
+# GitHub Connection Check
 
 If we want to check if GitHub is connected with our machine using ssh:
 <pre><code class="language-bash" data-trim>
 ssh -T git@github.com
 </code></pre>
-and you should get a message like:
+
+You should get a message like:
 <pre><code class="language-bash" data-trim>
-Hi username!You've successfully authenticated, but GitHub does not provide shell access.
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 </code></pre>
+
 
 --
 
@@ -346,7 +436,7 @@ Hi username!You've successfully authenticated, but GitHub does not provide shell
 
 ## What is SSH?
 
-<span style="color:skyblue">SSH (Secure Shell)</span> is a cryptographic network 
+<span style="color:blue">SSH (Secure Shell)</span> is a cryptographic network 
 protocol that allows you to securely connect to remote computers or servers over an 
 unsecured network. It's commonly used for accessing and managing servers, transferring 
 files, and authenticating with services like GitHub. SSH works by using a key pair: a 
@@ -356,14 +446,14 @@ communication without needing to send passwords.
 
 ## What is gh?
 
-<span style="color:skyblue">gh</span> is Github's command line interface (CLI) that can 
+<span style="color:blue">gh</span> is Github's command line interface (CLI) that can 
 be used to manage your github without leaving the command line and the keyboard.
 
 --
 
 ## What is LazyGit?
 
-<span style="color:skyblue">Lazygit</span> is a simple, fast, terminal-based UI for Git.
+<span style="color:blue">Lazygit</span> is a simple, fast, terminal-based UI for Git.
 
 It lets you manage your Git repositories more easily than typing out commands - you can 
 stage, commit, push, pull, resolve conflicts, and browse logs interactively, all from a 
@@ -374,7 +464,7 @@ commands, and it works entirely in your terminal without needing a graphical IDE
 
 ## IDE(Integrated Development Environment)
 
-<span style="color:skyblue">IDE</span> is a software application that provides a set of 
+<span style="color:blue">IDE</span> is a software application that provides a set of 
 tools for programmers to write, test, and debug their code more efficiently - all in one
  place. 
 
@@ -386,15 +476,46 @@ Examples of IDEs: PyCharm, Visual Studio, Eclipse.
 
 --
 
-## 1. Open Terminal and Create a new Poetry Project
+## $\circ$ Download [Poetry](https://python-poetry.org/docs/)
 
-<pre><code class="language-bash" data-trim>
+After downloading Poetry you can either use it on an existing project or create a project from scratch.
+
+--
+
+## Option 1. Use [Poetry](https://python-poetry.org/docs/) On An Existing Project
+
+### $\circ$ Open Terminal and go Into Your Project Directory
+
+```bash
+cd my_project
+```
+
+### $\circ$ Initialize Poetry
+
+```bash
+poetry init
+```
+
+- **Creates or Updates** *pyproject.toml* in the current directory.
+- It asks you questions (name, version, description, dependencies, etc.) and writes them into the file.
+- Does **not** create folders like `src/`, `tests/`, or `__init__.py`.
+- Used when:
+  - You already have an existing Python project, and just want to manage it with Poetry.
+  - You don’t want Poetry to scaffold a whole new layout.
+
+--
+
+## Option 2. Create a New Project with Poetry From Scratch
+
+### $\circ$ Open Terminal and run the following command
+
+```bash
 poetry new my_project
-</code></pre>
+```
 
 This creates:
 
-<pre><code class="language-markdown" data-trim>
+```markdown
 my_project/
 ├── my_project/
 │   └── __init__.py
@@ -402,72 +523,80 @@ my_project/
 │   └── __init__.py
 │   └── test_my_project.py
 ├── pyproject.toml
-</code></pre>
+```
 
-## 2. Move Into Your Project Directory
+### $\circ$ Move Into the Project Directory
 
-<pre><code class="language-bash" data-trim>
+```bash
 cd my_project
-</code></pre>
-
-## 3. Open in VS Code
-
-<pre><code class="language-bash" data-trim>
-code .
-</code></pre>
+```
 
 --
 
-## 4. Set Up the Python Environment
+## Next Steps (After Initializing or Creating a Project)
+
+### $\circ$ Open in VS Code
+
+```bash
+code .
+```
+
+### $\circ$ Set Up the Python Environment
 
 Inside the project folder:
 
-<pre><code class="language-bash" data-trim>
-poetry shell
-</code></pre>
-
-This activates the virtual environment.
-
-If you want to just install dependencies without activating the shell:
-
-<pre><code class="language-bash" data-trim>
+Install dependencies *without* activating the shell:
+```bash
 poetry install
-</code></pre>
+```
+
+Then *activate* the virtual environment:
+```bash
+poetry shell
+```
 
 --
 
-## 5. Configure VS Code to Use Poetry's Environment
+### $\circ$ Configure VS Code to Use Poetry's Environment
 
 VS Code needs to know about Poetry’s virtual environment.
 
-### Automatically:
+#### Automatically:
 
-When you run <span style="color:skyblue">poetry shell</span>, then start VS Code using 
-<span style="color:skyblue">code .</span> from the same shell - it usually detects it.
+When you run ***poetry shell***, then start VS Code using ***code .*** from the same terminal - it usually detects it.
 
-### Manually:
+#### Manually:
 
-1. Press <span style="color:skyblue">Ctrl+Shift+P</span> (Command Pallete)
-2. Select: <span style="color:skyblue">Python: Select Interpreter</span>
-3. Choose the one inside <span style="color:skyblue">.venv</span> or the one Poetry 
-created in cache.
+1. Press ***Ctrl+Shift+P*** (Command Palette)  
+2. Select: ***Python: Select Interpreter***  
+3. Choose the one inside ***.venv*** or the one Poetry created in cache.
 
 --
 
-## 6. Add Dependencies
+### $\circ$ Add Packages or Dependencies
 
-Add a package:
+Add a package (e.g. requests):
 
-<pre><code class="language-bash" data-trim>
+```bash
 poetry add requests
-</code></pre>
+```
 
 Add a dev dependency (e.g. pytest):
 
-<pre><code class="language-bash" data-trim>
+```bash
 poetry add --dev pytest
-</code></pre>
+```
 
+## Exit the Poetry shell
+
+Write:
+```bash
+Ctrl+D
+```
+OR
+```bash
+exit
+```
 
 --
 
@@ -477,7 +606,7 @@ poetry add --dev pytest
 
 ## What is Poetry?
 
-<span style="color:skyblue">Poetry</span> is a tool for managing Python projects. It 
+<span style="color:blue">Poetry</span> is a tool for managing Python projects. It 
 helps you declare, install, and resolve dependencies, build your package, and publish 
 it. Unlike using pip and virtualenv separately, Poetry handles both dependency 
 management and virtual environments seamlessly.
@@ -488,9 +617,37 @@ packages.
 
 --
 
+### Comment
+**Dev dependencies** are packages that are only needed during the development phase of a 
+project—such as testing frameworks, linters, formatters, or documentation tools. We use 
+them to support writing, testing, and maintaining code without including them in the 
+final production environment, which helps keep deployments lightweight, secure, and 
+efficient.
+
+--
+
+### Dependency vs. Package
+
+These words overlap, but they’re used slightly differently:
+- **Package**
+    - A Python library/module you can install and import.
+    - Example: `requests` is a package on PyPI.
+    - You can think of it as the *unit of distribution*.
+- **Dependency**
+    - A package your project _depends on_ to run or develop.
+    - Defined in your `pyproject.toml`.
+    - Example: if your project uses `requests` for HTTP calls, then `requests` is one of your dependencies.
+
+So:
+- Every **dependency** is a **package**, but not every package in existence is *your* dependency.
+- Some dependencies can themselves have dependencies (called **transitive dependencies**). Poetry handles all of that and records exact versions in `poetry.lock`.
+
+
+--
+
 ## TOML File
 
-A <span style="color:skyblue">.toml</span> file (short for Tom’s Obvious, Minimal 
+A <span style="color:blue">.toml</span> file (short for Tom’s Obvious, Minimal 
 Language) is a simple configuration file format that is easy for humans to read and 
 write.
 
@@ -502,165 +659,308 @@ configurations.
 
 # Advanced Workflow
 
-Create a well-organized Python project using Poetry, adding tools to improve code 
-quality, debugging, interactivity and documentation, while keeping dependencies cleanly 
-grouped into dev and docs environments
+--
+
+# Create a Well-Organized Python Project Using Poetry
+
+Create a well-organized Python project using Poetry, adding tools to improve code quality, debugging, interactivity and documentation, while keeping dependencies cleanly grouped into dev and docs environments.
 
 --
 
-## Inside the project path
+## On Terminal:
 
-1. Download and add <span style="color:skyblue">pre-commit</span> - a tool that 
-automatically runs checks like formatting or linting before you commit code - into your 
-project using Poetry. The <span style="color:skyblue">--group dev</span> flag tells 
-Poetry not to include pre-commit in your project's main dependencies. Instead, it places
- it under <span style="color:skyblue">[tool.poetry.group.dev.dependencies]</span> in 
-your project.toml (pre-commit = "^x.y.z"). This means it's used only during 
-development - not needed by users who install your package in production.
+1.  Go inside the projects' path (which has a .toml file, if you don't have a project follow the steps on Poetry slides to create one and then you can skip steps 1. and 2.)
 
-<pre ><code class="language-bash" data-trim>
+```bash
+cd project_path
+```
+
+2. **Initialize** Poetry
+
+```bash
+poetry init
+```
+
+**Continue $\downarrow$**
+
+--
+
+3.  **Create** a `.pre-commit-config.yaml` File
+
+This file is required for `pre-commit` to function properly. It specifies which code checks (known as "hooks") should be executed before each commit. These hooks can include tasks like formatting code, running linters, checking for trailing white space, or verifying file permissions.
+
+- Create this file in the **root** of your project (same level as `pyproject.toml`)
+
+```bash
+touch .pre-commit-config.yaml
+```
+
+- Then open it in your editor (e.g., VS Code)
+
+```bash
+code .pre-commit-config.yaml
+```
+
+**Continue $\downarrow$**
+
+--
+
+- Paste the following:
+
+```bash
+repos:
+
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-toml
+    -   id: check-added-large-files
+    -   id: check-case-conflict
+    -   id: check-executables-have-shebangs
+    -   id: check-shebang-scripts-are-executable
+    -   id: check-merge-conflict
+
+-   repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.14.0
+    hooks:
+    -   id: pretty-format-yaml
+        args: [--autofix, --indent, '4', --preserve-quotes]
+    -   id: pretty-format-toml
+        args: [--autofix]
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.13
+    hooks:
+    -   id: ruff-format
+        args: [--config=pyproject.toml]
+    -   id: ruff-check
+        args: [--config=pyproject.toml, --fix, --unsafe-fixes, --output-format=concise, --quiet]
+
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v3.20.0
+    hooks:
+    -   id: pyupgrade
+        args: [--py310-plus]
+
+-   repo: https://github.com/dannysepler/rm_unneeded_f_str
+    rev: v0.2.0
+    hooks:
+    -   id: rm-unneeded-f-str
+
+-   repo: https://github.com/numpy/numpydoc
+    rev: v1.8.0
+    hooks:
+    -   id: numpydoc-validation
+        exclude: '^(sandbox/|^docs/)'
+
+-   repo: local
+    hooks:
+    -   id: mypy
+        name: mypy
+        entry: mypy
+        args: [--show-error-codes, --explicit-package-bases, --config-file=pyproject.toml]
+        language: system
+        types: [python]
+        require_serial: true
+        exclude: ^(sandbox|docs)/
+
+-   repo: local
+    hooks:
+    -   id: pytest
+        name: pytest
+        entry: pytest
+        args: [-W, "ignore::DeprecationWarning", -s]
+        language: system
+        types: [python]
+        require_serial: true
+        exclude: ^(sandbox|docs)/
+
+```
+
+**Continue $\downarrow$**
+
+--
+
+4. **Download and add** ***pre-commit*** - a tool that automatically runs checks like formatting or linting before you commit code - into your project using Poetry. Pre-commits can be used to ensure code quality by running linters, formatters and other checks on the codebase. The ***--group dev*** flag tells Poetry not to include ***pre-commit*** in your project's main dependencies. Instead, it places it under `[tool.poetry.group.dev.dependencies]` in your ***pyproject.toml*** (***pre-commit = "^x.y.z"***). This means it's used only during development and is not needed by users who install your package in production.
+
+```bash
 poetry add --group dev pre-commit
-</code></pre>
+```
 
 ### Why use this?
 
 - Keeps your production environment clean
-- Makes it easy to separate tools like formatters, linters and test runners
+- Makes it easy to separate tools like formatters, linters, and test runners
 - Supports installing only specific groups:
-  - <span style="color:skyblue">poerty install --with dev</span> &rArr; includes dev 
-  tools
-  - <span style="color:skyblue">poertry install --without dev</span> &rArr; skips them 
-  for lightweight builds
+  - ***poetry install --with dev*** $\rightarrow$ includes dev tools
+  - ***poetry install --without dev*** $\rightarrow$ skips them for lightweight builds
+
+**Continue $\downarrow$**
 
 --
 
-2. Then we activate the Poetry virtual environment, where we can run installed packages 
-(like pre-commit) directly.
+5. **Install** ***bpython***, a fancy interactive Python REPL (alternative to python), as a dev tool.
 
-<pre><code class="language-bash" data-trim>
-poetry shell
-</code></pre>
-
-# OR
-
-Activate the same virtual environment manually. This is redundant if you've already 
-used poetry shell.
-
-<pre><code class="language-bash" data-trim>
-.../project-...-py3.11/bin/activate
-</code></pre>
-
---
-
-3. Install <span style="color:skyblue">bpython</span>, a fancy interactive Python REPL 
-(alternative to python), as a dev tool
-
-<pre><code class="language-bash" data-trim>
+```bash
 poetry add --group dev bpython
-</code></pre>
+```
 
---
+6. **Install** ***pretty-errors***, a package that makes Python tracebacks more readable.
 
-4. Install <span style="color:skyblue">pretty-errors</span>, a package that makes Pyhton
- tracebacks more readable.
-
-<pre><code class="language-bash" data-trim>
+```bash
 poetry add --group dev pretty-errors
-</code></pre>
+```
 
---
+7. **Activate pretty-errors for the current terminal session**. Makes Python errors and tracebacks prettier.
 
-5. Activate pretty-errors for the current terminal session. Makes Python errors and 
-tracebacks prettier.
-
-<pre><code class="language-bash" data-trim>
+```bash
 python3 -m pretty_errors
-</code></pre>
+```
 
-In the Options that will appear Press on this first the number 1 and for the second the 
-number 2.
+In the options that will appear, press ***1*** for the first and ***2*** for the second.
+
+**Continue $\downarrow$**
 
 --
 
-6. Install the Git hook (.git/hooks/pre-commit). After this, every git commit will 
-automatically run the checks defined in .pre-commit-config.yaml
+8. **Install** everything
 
-<pre><code class="language-bash" data-trim>
+```bash
+poetry install
+```
+
+9. **Activate the Poetry virtual environment**, where you can run installed packages (like pre-commit) directly.
+
+```bash
+poetry shell
+```
+
+### OR
+
+Activate the same virtual environment manually. This is redundant if you've already used ***poetry shell***.
+
+```bash
+.../project-...-py3.11/bin/activate
+```
+
+**Continue $\downarrow$**
+
+--
+
+10. **Initialize Git and connect with GitHub** (you need this for *pre-commit* later)
+
+```bash
+git init
+echo ".venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+```
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "Initial commit"
+```
+
+```bash
+git remote add origin ssh_link_of_repo
+```
+
+```bash
+git branch -M main
+```
+
+```bash
+git push -u origin main
+```
+
+11. **Install the Git hook** (***.git/hooks/pre-commit***). After this, every git commit
+ will automatically run the checks defined in ***.pre-commit-config.yaml***.
+
+```bash
 pre-commit install
-</code></pre>
+```
+
+**Continue $\downarrow$**
 
 --
 
-7. List the pre-commit Git hook file, confirming it has been installed. 
-(<span style="color:skyblue">Optional</span>)
+12. **List the pre-commit Git hook file**, confirming it has been installed. (*Optional*)
 
-<pre><code class="language-bash" data-trim>
+```bash
 ls .git/hooks/pre-commit
-</code></pre>
+```
 
---
+13. **Show the contents of the pre-commit hook file** (a shell script that runs pre-commit). (*Optional*)
 
-8. Show the contents of the pre-commit hook file (a shell script that runs pre-commit)
-
-<pre><code class="language-bash" data-trim>
+```bash
 cat .git/hooks/pre-commit
-</code></pre>
+```
 
---
+14. **Run all configured pre-commit hooks on all files**, not just changed ones. It is useful for validating the entire project upfront.
 
-9. Run all configured pre-commit hooks on all files, not just changed ones. It is useful
- for validating the entire project upfront.
-
-<pre><code class="language-bash" data-trim>
+```bash
 pre-commit run --all-files
-</code></pre>
+```
+
+**Continue $\downarrow$**
 
 --
 
 # Create Documentation using Sphinx
 
-<span style="color:skyblue">Sphinx</span> is a documentation generator, most famous in 
-the Python ecosystem.
+***Sphinx*** is a documentation generator, most famous in the Python ecosystem.
 
-<span style="color:skyblue">What it does:</span> You write your docs in reStructuredText
- (.rst) or Markdown, and Sphinx converts them into HTML websites, PDFs, ePubs, man pages
-, etc.
+### What it does:
+You write your docs in reStructuredText (***.rst***) or Markdown, and Sphinx converts them into HTML websites, PDFs, ePubs, man pages, etc.
 
 --
 
-10. Install documentation-related tools:
-    - <span style="color:skyblue">myst-parser</span>: for Markdown support in Sphinx
-    - <span style="color:skyblue">numpydoc</span>: parses NumPy-style docstrings
-    - <span style="color:skyblue">sphinx</span>: the main documentation generator
-    - <span style="color:skyblue">sphinx-math-dollar</span>: support for math in 
-    Markdown using $...$
-    - <span style="color:skyblue">sphinx-rtd-theme</span>: the Read the Docs theme for 
-    docs
+15. **Install documentation-related tools**:
+    - ***myst-parser***: for Markdown support in Sphinx
+    - ***numpydoc***: parses Numpy-style docstrings
+    - ***sphinx***: the main documentation generator
+    - ***sphinx-math-dollar***: support for math in Markdown using `$...$` for inline, `$$...$$` for block
+    - ***sphinx-rtd-theme***: the Read the Docs theme for docs
 
-<pre><code class="language-bash" data-trim>
+```bash
 poetry add --group docs myst-parser numpydoc sphinx sphinx-math-dollar sphinx-rtd-theme
-</code></pre>
+```
 
---
+16. Initialize Sphinx
 
-11. Enter the docs/ directory
+```bash
+sphinx-quickstart docs
+```
 
-<pre><code class="language-bash" data-trim>
+17. **Enter the**  ***docs/***  **directory**.
+
+```bash
 cd docs
-</code></pre>
+```
+
+```bash
+make clean
+```
+
+**Continue $\downarrow$**
 
 --
 
-12. Build the Sphinx documentation in HTML format using a custom Makefile target 
-(html-all).
+18. **Build the Sphinx documentation in HTML format** using a custom Makefile target (***html-all***).
 If this is a custom Makefile, the command could:
 - Build all doc pages
 - Run validation
 - Include Markdown and reStructuredText files
 
-<pre><code class="language-bash" data-trim>
+```bash
 make html-all
-</code></pre>
+```
 
 --
 
@@ -670,8 +970,8 @@ make html-all
 
 # What is pre-commit?
 
-<span style="color:skyblue">pre-commit</span> is a framework for managing and running 
-Git hooks, especially the <span style="color:skyblue">pre-commit</span> hook - a script 
+<span style="color:blue">pre-commit</span> is a framework for managing and running 
+Git hooks, especially the <span style="color:blue">pre-commit</span> hook - a script 
 that runs right before you make a commit. It helps enforce code quality by running tools
  (like linters, formatters, or security checks) automatically before code is committed 
 to your repository.
@@ -682,154 +982,53 @@ to your repository.
 
 ## Benefits:
 
-- Auto Formatting: Automatically runs tools like 
-<span style="color:skyblue">black</span>, <span style="color:skyblue">isort</span> or 
-<span style="color:skyblue">prettier</span> before commits.
+- **Auto Formatting**: Automatically runs tools like 
+<span style="color:blue">black</span>, <span style="color:blue">isort</span> or 
+<span style="color:blue">prettier</span> before commits.
 
-- Catch Errors Early: Run linters like <span style="color:skyblue">flake8</span>, 
-<span style="color:skyblue">mypy</span>, or <span style="color:skyblue">eslint</span> 
+- **Catch Errors Early**: Run linters like <span style="color:blue">flake8</span>, 
+<span style="color:blue">mypy</span>, or <span style="color:blue">eslint</span> 
 before code gets into version control.
 
-- Consistent Code Style: Enforces uniform code style across your team or projects.
+- **Consistent Code Style**: Enforces uniform code style across your team or projects.
 
-- Avoid Forgetting: Automates things you might forget to do manually (e.g., remove debug
+- **Avoid Forgetting**: Automates things you might forget to do manually (e.g., remove debug
  prints, fix import order).
 
-- Prevent Bad Commits: Can block commits that violate rules (e.g., large files, TODOs 
+- **Prevent Bad Commits**: Can block commits that violate rules (e.g., large files, TODOs 
 left in code).
 
 --
 
 # Common Tools Managed with pre-commit
 
-- <span style="color:skyblue">black</span> – auto-format Python code
+- <span style="color:blue">black</span> – auto-format Python code
 
-- <span style="color:skyblue">flake8</span> – lint Python code
+- <span style="color:blue">flake8</span> – lint Python code
 
-- <span style="color:skyblue">mypy</span> – static type checker
+- <span style="color:blue">mypy</span> – static type checker
 
-- <span style="color:skyblue">isort</span> – sort imports
+- <span style="color:blue">isort</span> – sort imports
 
-- <span style="color:skyblue">detect-secrets</span> – prevent committing secrets
+- <span style="color:blue">detect-secrets</span> – prevent committing secrets
 
-- <span style="color:skyblue">trailing-whitespace</span>, 
-<span style="color:skyblue">end-of-file-fixer</span>, etc. – small but useful 
+- <span style="color:blue">trailing-whitespace</span>, 
+<span style="color:blue">end-of-file-fixer</span>, etc. – small but useful 
 consistency checks
 
 --
 
 # How pre-commit works
 
-When you install and configure <span style="color:skyblue">pre-commit</span>, it creates
- a Git hook at <span style="color:skyblue">.git/hooks/pre-commit</span>. When you run 
-<span style="color:skyblue">git commit</span>, it automatically:
+When you install and configure <span style="color:blue">pre-commit</span>, it creates
+ a Git hook at <span style="color:blue">.git/hooks/pre-commit</span>. When you run 
+<span style="color:blue">git commit</span>, it automatically:
 
 1. Runs configured tools on your changed files
 
 2. Fails the commit if any tool fails
 
 3. Lets the commit succeed if everything passes
-
---
-
-## What is Python REPL (Read-Eval-Print Loop)
-
-It's an interactive Python shell you get when you run:
-
-<pre><code class="language-bash" data-trim>
-python
-</code></pre>
-
-You can:
-
-- Type code line by line
-- See results instantly
-- Test, debug etc.
-
-### Better REPLs:
-
-- bpython - colorful, autocompletion
-- ipython - powerful, rich features
-
---
-
-# YAML File
-
-A <span style="color:skyblue">.yaml</span> file is a human-readable text file used to 
-store configuration or structurred data. It uses indentation to represent hierarchy and 
-is common in tools like Docker, GitHub Actions and pre-commit. It's simple, clean and 
-easy for both humans and machines to read.
-
---
-
-# What is Traceback?
-
-A <span style="color:skyblue">traceback</span> is the error message Python shows when 
-your code crashes. It includes a list of function calls that led to the error, showing 
-where and why it happened. It helps you debug by pointing to the exact line and file 
-that caused the exception.
-
----
-
-# Advanced Workflow Better
-
---
-
-# Pre-commits
-
-Pre-commits are scripts that run automatically before a commit is made. These can be 
-used to ensure code quality by running linters, formatters, and other checks on the 
-codebase.
-
---
-
-# Install & Set Up
-
-Inside your project:
-
-<pre><code class="language-bash" data-trim>
-poetry add pre-commit
-pre-commit install
-</code></pre>
-
-This adds the .pre-commit-config.yaml file, where you define the hooks you want to run.
-
-# Example Configuration
-
-Example of a .pre-commit-config.yaml file:
-
-<pre><code class="language-yaml" data-trim>
-repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
-    hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
-  - repo: https://github.com/psf/black
-    rev: 21.12b0
-    hooks:
-      - id: black
-</code></pre>
-
---
-
-# Usage
-
-- Stage files you want to commit
-- Run all hooks against all files: <code class="language-bash" style="display: inline-block; background: #222;">
-pre-commit run --all-files</code>
-
-- Run hooks only on changed files: <code class="language-bash" style="display: inline-block; background: #222;">
-pre-commit run</code>
-
-- Update pre-commit hooks: <code class="language-bash" style="display: inline-block; background: #222;">
-pre-commit autoupdate</code>
-
-- If you run git commit with pre-commits and files are modified by hooks, commit will be
- aborted. You need to:
-  - Stage them again
-  - Commit them
 
 --
 
@@ -851,8 +1050,7 @@ Automatically reformat code to follow a consistent style.
 - Comma placements
 
 Linters and formatters get their config from 
-<code class="language-bash" style="display: inline-block; background: #222;">
-pyproject.toml</code>
+<code class="language-toml" style="background-color: #3d3d3dff; color: #fff; max-height: none; overflow: visible;" data-trim>pyproject.toml</code>
 
 --
 
@@ -889,7 +1087,7 @@ convention = "numpy"
 
 --
 
-# NumPy Docstrings
+# NumPy Docstring Example
 
 NumPy docstrings follow a specific format to ensure consistency and clarity. Here's a 
 basic template for writing NumPy-style docstrings:
@@ -939,136 +1137,44 @@ def example_function(param1, param2):
     return True
 </code></pre>
 
---
-
-# Key Sections
-
-- **Summary**: A one-line summary that starts with a capital letter and ends with a 
-period.
-
-- **Parameters**: A list of parameters with types and descriptions.
-
-- **Returns**: Description of the return value, including type information.
-
-- **Raises**: Any exceptions that the function may raise and the conditions under which 
-they occur.
-
-- **See Also**: References to related functions or methods within the module.
-
-- **Notes**: Additional information about the function, which may include implementation
- details.
-
-- **Examples**: Usage examples with the expected output, helpful for understanding 
-function behavior.
 
 --
+## What is Python REPL (Read-Eval-Print Loop)
 
-# Generating Documentation
-
-Assuming you already have numpy docstrings in your code.
-
---
-
-1. Add necessary packages
+It's an interactive Python shell you get when you run:
 
 <pre><code class="language-bash" data-trim>
-poetry add --group docs numpydoc sphinx sphinx-rtd-theme sphinx-math-dollar myst-parser
+python
 </code></pre>
 
-- numpydoc: Parses NumPy-style docstrings for Sphinx.
+You can:
 
-- sphinx: Turns reStructuredText or Markdown + docstrings into HTML, LaTeX, PDF, etc.
+- Type code line by line
+- See results instantly
+- Test, debug etc.
 
-- sphinx-math-dollar: Allows you to write math equations with LaTeX dollar signs 
-(`$...$` for inline, `$$...$$` for block).
+### Better REPLs:
 
-- sphinx-rtd-theme: The [ReadTheDocs theme](https://readthedocs.io/)
-
-- myst-parser: Enables writing docs in Markdown .md instead of .rst
+- bpython - colorful, autocompletion
+- ipython - powerful, rich features
 
 --
 
-2. Set up sphinx in the docs folder of your repo
+# YAML File
 
-<pre><code class="language-bash" data-trim>
-poetry run sphinx-quickstart docs
-</code></pre>
-
-Follow prompts on the terminal.
-
---
-
-3. Configure <span style="color:skyblue">conf.py</span> For example
-
-<pre><code style="max-height: none; overflow: visible;" class="language-bash" data-trim>
-# -- General configuration ---------------------------------------------------
-
-extensions = [
-    "sphinx.ext.autosummary",
-    "sphinx.ext.autodoc",
-    "numpydoc",
-    "sphinx_math_dollar",
-    "sphinx.ext.mathjax",
-    "sphinx_rtd_theme",
-    "myst_parser",  # enables Markdown support via MyST
-]
-
-templates_path = ["_templates"]
-exclude_patterns = []
-
-autosummary_generate = True
-numpydoc_class_members_toctree = False
-
-# -- Options for HTML output -------------------------------------------------
-
-html_theme = "sphinx_rtd_theme"
-
-# -- Options for napoleon extension ------------------------------------------
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-</code></pre>
-
---
-
-4. Autogenerate <span style="color:skyblue">.rst</span> files for your code
-
-<pre><code class="language-bash" data-trim>
-sphinx-apidoc -o docs/source your_module
-</code></pre>
-
---
-
-5. Include modules into <span style="color:skyblue">index.rst</span> Include something 
-like:
-
-<pre><code class="language-yaml" data-trim>
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
-   your_module # don't forget the indent
-</code></pre>
-
---
-
-6. Build your documentation
-
-<pre><code class="language-bash" data-trim>
-sphinx-build -b html docs/source docs/build
-</code></pre>
-
---
-
-# Additional Information
+A <span style="color:blue">.yaml</span> file is a human-readable text file used to 
+store configuration or structurred data. It uses indentation to represent hierarchy and 
+is common in tools like Docker, GitHub Actions and pre-commit. It's simple, clean and 
+easy for both humans and machines to read.
 
 --
 
 # .rst File
 
-An <span style="color:skyblue">.rst</span> file (reStructuredText) is a plain-text 
+An <span style="color:blue">.rst</span> file (reStructuredText) is a plain-text 
 markup format commonly used in Python projects for writing documentation.
 
-- Works seamlessly with Sphinx, which converts <span style="color:skyblue">.rst</span> 
+- Works seamlessly with Sphinx, which converts <span style="color:blue">.rst</span> 
 into HTML, PDF, ePub, etc.
 - More powerful than Markdown for large docs: supports cross-references, indexes, 
 advanced tables, math, and extensible directives
@@ -1090,6 +1196,15 @@ Features
 
    print("Hello, World!")
 </code></pre>
+
+--
+
+# What is Traceback?
+
+A <span style="color:blue">traceback</span> is the error message Python shows when 
+your code crashes. It includes a list of function calls that led to the error, showing 
+where and why it happened. It helps you debug by pointing to the exact line and file 
+that caused the exception.
 
 ---
 
@@ -1159,8 +1274,8 @@ To change the theme, edit index.html and modify this line:
 <link rel="stylesheet" href="dist/theme/black.css" id="theme">
 </code></pre>
 
-You can try other themes like <span style="color: skyblue;">white.css</span>, 
-<span style="color: skyblue;">night.css</span>, <span style="color: skyblue;">
+You can try other themes like <span style="color: blue;">white.css</span>, 
+<span style="color: blue;">night.css</span>, <span style="color: blue;">
 moon.css</span>, etc.
 
 --
@@ -1195,7 +1310,7 @@ moon.css</span>, etc.
 # Change Markdown File
 
 Inside the file that contains the template, you can create a folder called 
-<span style="color:skyblue">Presentations</span> for example. There you can store all 
+<span style="color:blue">Presentations</span> for example. There you can store all 
 Markdown files for every presentation you make.
 
 #### To change the presentation, you can do the following:
@@ -1248,11 +1363,10 @@ You can publish your presentation online for free using GitHub Pages.
     - empty .nojekyll file(prevents GitHub from using Jekyll)
 2. Go to your GitHub repository -> Settings -> Pages
 3. Under Build and Deployment, set:
-- Source: Deploy from branch
-- Branch: main
-- Folder: / (root)
-- Click Save
-
+    - Source: Deploy from branch
+    - Branch: main
+    - Folder: / (root)
+    - Click Save
 4. Wait 1-10 minutes. GitHub will show a <span style="color:green">green message</span> 
 like the following:
 <pre><code class="language-markdown" data-trim style="color:green;">
@@ -1273,22 +1387,7 @@ git push
 
 - Visit your slides live in the browser!
 
---
-
-# Public vs Private Repos and Ways to Share Slides
-
---
-
-### ✅ Option 1: GitHub Pages (Public Repo)
-
-- If your repository is public, GitHub Pages will host your presentation at:
-<pre><code class="language-markdown" data-trim>
-https://your-username.github.io/repo-name/
-</code></pre>
-- This is the <span style="color:green">easiest</span> and 
-<span style="color:green">recommended</span> way to publish Reveal.js slides.
-
-### 🚫 Option 2: GitHub Pages (Private Repo)
+## Note:
 
 - GitHub Pages do <span style="color:red">not</span> work for private repos unless you
  are on a GitHub Enterprise plan.
@@ -1297,25 +1396,13 @@ https://your-username.github.io/repo-name/
 
 --
 
-### <span style="color:blue">🛠</span> Option 3: Local Server (for Private Sharing)
-
-- You can run your slides locally with:
-<pre><code class="language-bash" data-trim>
-npm start
-</code></pre>
-
-- Then access them at:
-<pre><code class="language-bash" data-trim>
-http://localhost:8000/
-</code></pre>
-
-- This works for development or sharing over a local network.
-
-### 📤 Option 4: Export to PDF
+### Export Slides to PDF
 
 - Reveal.js can export slides to PDF:
 <pre><code class="language-bash" data-trim>
 npm install -g decktape
+</code></pre>
+<pre><code class="language-bash" data-trim>
 decktape reveal http://localhost:8000 slides.pdf
 </code></pre>
 
@@ -1323,15 +1410,13 @@ decktape reveal http://localhost:8000 slides.pdf
 
 --
 
-# 📦 Managing Large Files with Git LFS
+# Managing Large Files with Git LFS
 
 If you need to include large binary files in your presentation (e.g. .mp4 videos, .pdf 
 documents), it is recommended to use Git Large File Storage (LFS) instead of committing 
 them directly to the repository.
 
---
-
-## ✅ Install Git LFS
+## Install Git LFS
 
 - Ubuntu/Debian:
 <pre><code class="language-bash" data-trim>
@@ -1341,9 +1426,11 @@ sudo apt install git-lfs
 - Windows:  
 Download and install from [git-lfs.com](https://git-lfs.com/)
 
+**Continue $\downarrow$**
+
 --
 
-### ✅ Set Up Git LFS in Your Repo
+### Set Up Git LFS in Your Repo
 
 1. Run this ince per machine:
 <pre><code class="language-bash" data-trim>
@@ -1362,7 +1449,13 @@ git commit -m "Add video using Git LFS"
 git push
 </code></pre>
 
-### ℹ️ Notes
+--
+
+# Additional Information
+
+--
+
+## Git LFS
 
 - GitHub’s free LFS plan includes 1 GB of storage and 1 GB/month bandwidth.
 - You can view tracked LFS files using: <span style="color:lime">
@@ -1371,14 +1464,11 @@ git push
 To avoid LFS entirely, you can also upload media externally (e.g. Google Drive or a web 
 server) and link to them in your slides.
 
---
-
-# Additional Information
 
 --
 
 ## What is Reveal.js?
-<span style="color:skyblue">Reveal.js</span> is an open-source framework for creating 
+<span style="color:blue">Reveal.js</span> is an open-source framework for creating 
 HTML-based presentations using Markdown or HTML. Instead of writing slides in a visual 
 editor (like Keynote or PowerPoint), you write them in plain text - and Reveal.js turns 
 them into a modern, interactive slideshow in the browser.
@@ -1387,7 +1477,7 @@ them into a modern, interactive slideshow in the browser.
 
 ## HTML File
 
-- The <span style="color:skyblue">HTML</span> file is the main entry point of the 
+- The <span style="color:blue">HTML</span> file is the main entry point of the 
 presentation.
 
 - It defines the page structure, loads Reveal.js and its plugins, configures settings, 
@@ -1397,7 +1487,7 @@ and optionally contains the slides directly if not using Markdown.
 
 ## CSS File
 
-- The <span style="color:skyblue">CSS</span> file defines the styling of your 
+- The <span style="color:blue">CSS</span> file defines the styling of your 
 presentation.
 
 - It customizes the look and feel - fonts, colors, layout - either by overriding the 
@@ -1407,7 +1497,7 @@ default Reveal.js theme or adding new styles.
 
 ## Markdown File
 
-- The <span style="color:skyblue">Markdown (.md)</span> file contains the slide content 
+- The <span style="color:blue">Markdown (.md)</span> file contains the slide content 
 written in simple, readable Markdown syntax.
 
 - It’s loaded by the HTML file (via the Reveal.js markdown plugin), making it easy to 
@@ -1417,7 +1507,7 @@ edit slides without touching HTML.
 
 ## JSON File
 
-- A <span style="color:skyblue">JSON</span> file is optional and is used to store extra 
+- A <span style="color:blue">JSON</span> file is optional and is used to store extra 
 data or configuration for the presentation.
 
 - It can define metadata, timing, or slide-related data that JavaScript in the HTML file
@@ -1441,497 +1531,6 @@ data or configuration for the presentation.
 <img src="figures/git_cheatsheet_page_4.jpg" alt="Git Page 4" width="550" height="650">
 </div>
 
---
-
-## I. Version Control
-
---
-
-### 1. `git init`
-
-Initializes a new Git repository in the current directory.
-
-<pre><code class="language-bash" data-trim> 
-git init
-</code></pre>
-
-**Use**: Start tracking version history for a new or existing project.
-
---
-
-### 2. `git clone`
-
-Copies a repository from a remote source.
-
-<pre><code class="language-bash" data-trim>
-git clone https://github.com/user/repo.git
-</code></pre>
-
-**Use**: Download a full copy of a repository.
-
---
-
-### 3. `git status`
-
-Displays the state of the working directory and staging area.
-
-<pre><code class="language-bash" data-trim>
-git status
-</code></pre>
-
-**Use**: Check which files are staged, modified, or untracked.
-
---
-
-### 4. `git add`
-
-Stages changes to be committed.
-
-<pre><code class="language-bash" data-trim>
-git add file.txt
-# or add all
-git add .
-</code></pre>
-
-**Use**: Prepare changes for committing.
-
---
-
-### 5. `git commit`
-
-Saves staged changes to the repository history.
-
-<pre><code class="language-bash" data-trim>
-git commit -m "Add login functionality"
-</code></pre>
-
-**Use**: Record a snapshot of your changes.
-
---
-
-### 6. `git log`
-
-Shows the commit history.
-
-<pre><code class="language-bash" data-trim>
-git log
-# or condensed
-git log --oneline
-</code></pre>
-
-**Use**: View past commits.
-
---
-
-### 7. `git diff`
-
-Shows changes between working directory and index.
-
-<pre><code class="language-bash" data-trim>
-git diff
-# for staged changes
-git diff --staged
-</code></pre>
-
-**Use**: See what has been modified.
-
---
-
-### 8. `git config`
-
-Sets user config values.
-
-<pre><code class="language-bash" data-trim>
-git config --global user.name "Your Name"
-git config --global user.email "your@example.com"
-</code></pre>
-
-**Use**: Identify the author of commits.
-
---
-
-### 9. `git rm`
-
-Removes a file from the working directory and staging area.
-
-<pre><code class="language-bash" data-trim>
-git rm oldfile.txt
-</code></pre>
-
-**Use**: Track file deletion in version history.
-
---
-
-### 10. `git mv`
-
-Renames or moves a file.
-
-<pre><code class="language-bash" data-trim>
-git mv oldname.txt newname.txt
-</code></pre>
-
-**Use**: Maintain history when renaming files.
-
---
-
-## II. Branching and Merging
-
---
-
-### 11. `git branch`
-
-Lists, creates, or deletes branches.
-
-<pre><code class="language-bash" data-trim>
-git branch
-# create a new branch
-git branch feature-x
-</code></pre>
-
-**Use**: Manage different lines of development.
-
---
-
-### 12. `git checkout`
-
-Switches branches or restores files.
-
-<pre><code class="language-bash" data-trim>
-git checkout feature-x
-# or create and switch
-git checkout -b new-feature
-</code></pre>
-
-**Use**: Move between branches.
-
---
-
-### 13. `git switch`
-
-A simpler alternative to `checkout` for switching branches.
-
-<pre><code class="language-bash" data-trim>
-git switch main
-</code></pre>
-
-**Use**: Modern method for changing branches.
-
---
-
-### 14. `git merge`
-
-Merges changes from one branch into another.
-
-<pre><code class="language-bash" data-trim>
-git checkout main
-git merge feature-x
-</code></pre>
-
-**Use**: Integrate completed features.
-
---
-
-### 15. `git rebase`
-
-Reapplies commits on top of another base branch.
-
-<pre><code class="language-bash" data-trim>
-git checkout feature-x
-git rebase main
-</code></pre>
-
-**Use**: Clean linear history.
-
---
-
-### 16. `git stash`
-
-Temporarily shelves changes.
-
-<pre><code class="language-bash" data-trim>
-git stash
-# apply them later
-git stash apply
-</code></pre>
-
-**Use**: Save unfinished changes without committing.
-
---
-
-### 17. `git tag`
-
-Creates tags for marking releases or important commits.
-
-<pre><code class="language-bash" data-trim>
-git tag v1.0.0
-</code></pre>
-
-**Use**: Mark specific points in history.
-
---
-
-### 18. `git cherry-pick`
-
-Applies a commit from one branch to another.
-
-<pre><code class="language-bash" data-trim>
-git cherry-pick abc1234
-</code></pre>
-
-**Use**: Apply specific changes without merging full branch.
-
---
-
-### 19. `git pull`
-
-Fetches and integrates from a remote repository.
-
-<pre><code class="language-bash" data-trim>
-git pull origin main
-</code></pre>
-
-**Use**: Update your branch with the latest changes.
-
---
-
-### 20. `git push`
-
-Uploads local commits to a remote repository.
-
-<pre><code class="language-bash" data-trim>
-git push origin main
-</code></pre>
-
-**Use**: Share your changes with others.
-
---
-
-## III. Bug Tracking and Fixing
-
---
-
-### 21. `git blame`
-
-Shows which commit and author last modified each line.
-
-<pre><code class="language-bash" data-trim>
-git blame index.js
-</code></pre>
-
-**Use**: Trace the origin of code changes.
-
---
-
-### 22. `git revert`
-
-Creates a new commit that undoes changes from a previous one.
-
-<pre><code class="language-bash" data-trim>
-git revert abc1234
-</code></pre>
-
-**Use**: Safely undo commits.
-
---
-
-### 23. `git reset`
-
-Resets HEAD and optionally working directory/index.
-
-<pre><code class="language-bash" data-trim>
-git reset --soft HEAD~1
-# or hard reset
-git reset --hard HEAD~1
-</code></pre>
-
-**Use**: Undo local commits.
-
---
-
-### 24. `git bisect`
-
-Binary search to find which commit introduced a bug.
-
-<pre><code class="language-bash" data-trim>
-git bisect start
-git bisect bad
-git bisect good abc1234
-</code></pre>
-
-**Use**: Locate the commit that caused a regression.
-
---
-
-### 25. `git show`
-
-Displays information about a specific commit.
-
-<pre><code class="language-bash" data-trim>
-git show abc1234
-</code></pre>
-
-**Use**: Examine commit details and diff.
-
---
-
-### 26. `git reflog`
-
-Records changes to HEAD for recovery.
-
-<pre><code class="language-bash" data-trim>
-git reflog
-</code></pre>
-
-**Use**: Restore lost commits or branches.
-
---
-
-### 27. `git clean`
-
-Removes untracked files or directories.
-
-<pre><code class="language-bash" data-trim>
-git clean -fd
-</code></pre>
-
-**Use**: Clean up working directory.
-
---
-
-### 28. `git log -p`
-
-Shows each commit along with the patch.
-
-<pre><code class="language-bash" data-trim>
-git log -p
-</code></pre>
-
-**Use**: See exactly what was changed.
-
---
-
-### 29. `git diff <branch1>..<branch2>`
-
-Shows differences between two branches.
-
-<pre><code class="language-bash" data-trim>
-git diff main..feature-x
-</code></pre>
-
-**Use**: Compare changes between branches.
-
---
-
-### 30. `git shortlog`
-
-Summarizes commit history by author.
-
-<pre><code class="language-bash" data-trim>
-git shortlog -sn
-</code></pre>
-
-**Use**: See who contributed and how much.
-
---
-
-## IV. Git Hooks (Automation)
-
-Git hooks are scripts triggered by Git actions like commit, push, or merge. They help 
-automate tasks such as linting, testing, or enforcing policy.
-
---
-
-### 31. `pre-commit`
-
-Runs before a commit is finalized.
-
-<pre><code class="language-bash" data-trim>
-#!/bin/sh
-echo "Running pre-commit checks..."
-</code></pre>
-
-**Use**: Lint or test code before committing.
-
---
-
-### 32. `prepare-commit-msg`
-
-Edits the default commit message before the editor is launched.
-
-<pre><code class="language-bash" data-trim>
-#!/bin/sh
-echo "[AUTO-LOG] " >> $1
-</code></pre>
-
-**Use**: Add default messages or tags.
-
---
-
-### 33. `commit-msg`
-
-Validates or modifies the commit message.
-
-<pre><code class="language-bash" data-trim>
-#!/bin/sh
-if ! grep -qE 'JIRA-[0-9]+' "$1"; then
-  echo "ERROR: Commit message must include a JIRA ID"
-  exit 1
-fi
-</code></pre>
-
-**Use**: Enforce commit message rules.
-
---
-
-### 34. `post-commit`
-
-Executes after a successful commit.
-
-<pre><code class="language-bash" data-trim>
-#!/bin/sh
-echo "Commit successful!"
-</code></pre>
-
-**Use**: Notifications or logging.
-
---
-
-### 35. `pre-push`
-
-Runs before pushing to a remote.
-
-<pre><code class="language-bash" data-trim>
-#!/bin/sh
-npm test || exit 1
-</code></pre>
-
-**Use**: Prevent broken code from being pushed.
-
---
-
-### 36. `post-merge`
-
-Runs after a merge completes.
-
-<pre><code class="language-bash" data-trim>
-#!/bin/sh
-echo "Merged successfully! Run build..."
-</code></pre>
-
-**Use**: Rebuild project or install dependencies.
-
---
-
-### 37. Installing a Git Hook
-
-Git hooks live in the `.git/hooks/` directory. You must make them executable:
-
-<pre><code class="language-bash" data-trim>
-chmod +x .git/hooks/pre-commit
-</code></pre>
-
-**Use**: Enable and manage automation workflows.
-
 ---
 
 # Store screenshot as PDF instead of PNG to NOT lose quality
@@ -1942,13 +1541,13 @@ chmod +x .git/hooks/pre-commit
 
 ### Option 1
 
-- Take a screenshot using <span style="color:skyblue">Win + Shift + S</span>
-- <span style="color:skyblue">Paste</span> it into Paint or Word or a 
-<span style="color:skyblue">browser</span>
-- Got to <span style="color:skyblue">File</span> > 
-<span style="color:skyblue">Print</span> > choose <span style="color:skyblue">Microsoft 
+- Take a screenshot using <span style="color:blue">Win + Shift + S</span>
+- <span style="color:blue">Paste</span> it into Paint or Word or a 
+<span style="color:blue">browser</span>
+- Got to <span style="color:blue">File</span> > 
+<span style="color:blue">Print</span> > choose <span style="color:blue">Microsoft 
 Print to PDF</span> as the printer
-- <span style="color:skyblue">Save</span> the PDF
+- <span style="color:blue">Save</span> the PDF
 
 ### Option 2 (PowerShell)
 
@@ -1962,17 +1561,17 @@ Start-Process -FilePath "screenshot.png" -Verb PrintTo -ArgumentList "Microsoft 
 
 ### Option 1
 
-- Use <span style="color:skyblue">PrtSc</span> or a screenshot tool like 
-<span style="color:skyblue">Flameshot</span>
-- Open the image in <span style="color:skyblue">LibreOffice Draw</span> or 
-<span style="color:skyblue">GIMP</span> or a <span style="color:skyblue">browser</span>
-- <span style="color:skyblue">Export</span> or print to PDF:
-  - In LibreOffice: <span style="color:skyblue">File</span> > 
-  <span style="color:skyblue">Export As</span> > 
-  <span style="color:skyblue">Export as PDF</span>
-  - In GIMP: <span style="color:skyblue">File</span> > 
-  <span style="color:skyblue">Export As</span> > 
-  <span style="color:skyblue">select PDF</span>
+- Use <span style="color:blue">PrtSc</span> or a screenshot tool like 
+<span style="color:blue">Flameshot</span>
+- Open the image in <span style="color:blue">LibreOffice Draw</span> or 
+<span style="color:blue">GIMP</span> or a <span style="color:blue">browser</span>
+- <span style="color:blue">Export</span> or print to PDF:
+  - In LibreOffice: <span style="color:blue">File</span> > 
+  <span style="color:blue">Export As</span> > 
+  <span style="color:blue">Export as PDF</span>
+  - In GIMP: <span style="color:blue">File</span> > 
+  <span style="color:blue">Export As</span> > 
+  <span style="color:blue">select PDF</span>
 
 ### Option 2 (Terminal)
 
@@ -1986,7 +1585,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 📁 File & Directory Management
+## File & Directory Management
 | Command | Description |
 | --- | --- |
 | ls | List files in current directory |
@@ -2004,7 +1603,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 📄 File Viewing & Editing
+## File Viewing & Editing
 | Command | Description |
 | --- | --- |
 | cat file.txt | Show file contents |
@@ -2014,7 +1613,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🔍 Search & Navigation
+## Search & Navigation
 | Command | Description |
 | --- | --- |
 | find . -name '*.py' | Find all `.py` files |
@@ -2025,7 +1624,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🧰 System Utilities
+## System Utilities
 | Command | Description |
 | --- | --- |
 | whoami | Show current user |
@@ -2036,7 +1635,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 📦 Package Management (APT)
+## Package Management (APT)
 | Command | Description |
 | --- | --- |
 | sudo apt update | Refresh package index |
@@ -2046,7 +1645,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🐍 Python & pyenv
+## Python & pyenv
 | Command | Description |
 | --- | --- |
 | python3 --version | Show system Python version |
@@ -2065,7 +1664,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🔐 SSH & Remote Access
+## SSH & Remote Access
 | Command | Description |
 | --- | --- |
 | ssh user@host | Connect to remote machine |
@@ -2077,7 +1676,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 📡 FTP & File Transfer
+## FTP & File Transfer
 
 | Command | Description |
 |--------|-------------|
@@ -2095,7 +1694,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🧠 Shortcuts
+## Shortcuts
 | Command | Description |
 | --- | --- |
 | Ctrl + C | Cancel current command |
@@ -2108,7 +1707,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🌿 Git Essentials - Part 1
+## Git Essentials - Part 1
 | Command | Description |
 | --- | --- |
 | git init | Initialize a new Git repository |
@@ -2127,7 +1726,7 @@ convert screenshot.png screenshot.pdf
 
 --
 
-## 🌿 Git Essentials - Part 2
+## Git Essentials - Part 2
 
 | Command | Description |
 | --- | --- |
