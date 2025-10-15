@@ -69,7 +69,7 @@ Nikos Vlachogiannakis, 2025
 
 ## Extra
 
-<div style="display: flex; gap: 4em; text-align: left;">
+<div style="display: flex; text-align: left; width: 70vw;">
 
 <div style="flex: l;">
 
@@ -84,18 +84,21 @@ Nikos Vlachogiannakis, 2025
 
 <div style="flex: l;">
 
-8. [<span style="color:darkred">Cheat Sheet Reference</span>](#/9)
-    - [File & Directory Management](#/9/1)
-    - [File Viewing & Editing](#/9/2)
-    - [Search & Navigation](#/9/3)
-    - [System Utilities](#/9/4)
-    - [Package Management](#/9/5)
-    - [Python & pyenv](#/9/6)
-    - [SSH & Remote Access](#/9/7)
-    - [FTP & File Transfer](#/9/8)
-    - [Shortcuts](#/9/9)
-    - [Git Essentials - Part 1](#/9/10)
-    - [Git Essentials - Part 2](#/9/11)
+8. [<span style="color:darkred">LazyGit</span>](#/9)
+    - [Install LazyGit](#/9/1)
+    - [How to use LazyGit](#/9/2)
+    - [Panels or Sections in Lazygit](#/9/3)
+    - [Navigation betweeen panels](#/9/10)
+    - [Shortcuts & Key Mappings](#/9/11)
+    - [Shortcuts](#/9/12)
+    - [Commit a file](#/9/13)
+    - [Push and Pull code](#/9/14)
+    - [Create and Delete a Branch](#/9/15)
+    - [Undo a commit](#/9/16)
+    - [Merge a Branch](#/9/17)
+    - [Resolve Merge Conflicts](#/9/18)
+    - [Discard changes](#/9/19)
+    - [Copy Information](#/9/20)
 
 
 </div>
@@ -1583,167 +1586,217 @@ convert screenshot.png screenshot.pdf
 
 ---
 
-# Cheat Sheet
+# LazyGit
+
+The following material was obtained from [How to Use Lazygit to Improve Your Git Workflow](https://www.freecodecamp.org/news/how-to-use-lazygit-to-improve-your-git-workflow/#how-to-use-lazygit)
 
 --
 
-## File & Directory Management
-| Command | Description |
-| --- | --- |
-| ls | List files in current directory |
-| ls -la | List all files with details |
-| cd folder_name | Change directory |
-| cd | Go to home directory |
-| cd .. | Go up one directory |
-| cd - | Go to previous directory |
-| mkdir folder_name | Create a new folder |
-| rm file | Delete file |
-| rm -rf folder | Force delete folder and contents |
-| cp source dest/ | Copy file/folder |
-| mv old new | Move or rename file/folder |
-| touch file.txt | Create empty file |
+# Install Lazygit
+
+Follow the step-by-step guide in [ Install Lazygit](https://www.freecodecamp.org/news/how-to-use-lazygit-to-improve-your-git-workflow/#heading-how-to-install-lazygit)
 
 --
 
-## File Viewing & Editing
-| Command | Description |
-| --- | --- |
-| cat file.txt | Show file contents |
-| less file.txt | Scrollable view of file |
-| nano file.txt | Edit file in nano editor |
-| code . | Open folder in VS Code (if installed) |
+# How to Use Lazygit
+
+To use Lazygit, you don’t need any advanced knowledge about Lazygit or the Git CLI. If you are a beginner, that’s okay – I’ll walk you through the process and the basics here.
+
+The main thing to understand is how the key mappings (shortcut keys) work. They will help build a solid base for using the tool effectively.
+
+To use Lazygit, first open the terminal you use.
+
+Then type the ***lazygit*** command in your terminal:
+
+```bash
+lazygit
+```
 
 --
 
-## Search & Navigation
-| Command | Description |
-| --- | --- |
-| find . -name '*.py' | Find all `.py` files |
-| grep "pattern" file.txt | Search for text in a file |
-| grep -r "text" folder/ | Recursive search in folder |
-| pwd | Show current directory |
-| history | View command history |
+## Panels or Sections in Lazygit
+
+The Lazygit UI is divided into six panels, or sections. Each panel serves a specific use case. They are:
+
+- **Status**
+- **Files**
+- **Branches**
+- **Commits**
+- **Stash**
+- **Previews**
+
+The most important panels in Lazygit are **Files**, **Branches**, and **Commits**, but we’ll examine each of the six now.
 
 --
 
-## System Utilities
-| Command | Description |
-| --- | --- |
-| whoami | Show current user |
-| df -h | Show disk usage |
-| free -h | Show memory usage |
-| top / htop | Process monitor (install `htop`) |
-| uptime | System uptime |
+### Status Panel
+
+The status panel provides an ***overview of your current repository*** and the currently checked-out branch, including local and remote changes.
+
+Also, when you click on the status panel text, it opens a new tab or panel where it shows the recently opened repository list.
 
 --
 
-## Package Management (APT)
-| Command | Description |
-| --- | --- |
-| sudo apt update | Refresh package index |
-| sudo apt upgrade | Upgrade installed packages |
-| sudo apt install pkgname | Install package |
-| sudo apt remove pkgname | Remove package |
+### Files Panel
+
+The Files panel shows a ***list of the files in your repository that have been modified or changed***. You can see files that you’ve deleted or discarded and unstaged.
 
 --
 
-## Python & pyenv
-| Command | Description |
-| --- | --- |
-| python3 --version | Show system Python version |
-| pyenv install 3.11.13 | Install specific Python version |
-| pyenv global 3.11.13 | Set global Python version |
-| pyenv local 3.11.13 | Set version only for current folder |
-| pyenv versions | List installed versions |
-| pyenv which python | Show path to Python binary |
-| poetry init | Create new Poetry project |
-| poetry env use $(pyenv which python) | Link Poetry to pyenv Python |
-| poetry env list | Lists all exiting environments |
-| poetry env remove <env> | Removes poetry environment |
-| poetry add <package> | Add dependency |
-| poetry install | Install all libraries in toml |
-| poetry shell | Activate project virtual environment |
+### Branches Panel
+
+The Branches panel shows ***lists of local and remote branches*** which are available in this repository.
 
 --
 
-## SSH & Remote Access
-| Command | Description |
-| --- | --- |
-| ssh user@host | Connect to remote machine |
-| ssh -i ~/.ssh/id_rsa user@host | Use specific SSH key |
-| ssh-keygen -t ed25519 | Generate new SSH key |
-| cat ~/.ssh/id_ed25519.pub | Show public key to add to GitHub/remote |
-| scp file user@host:/remote/path | Copy file to remote server |
-| scp user@host:/remote/file ./local/ | Copy file from remote server |
+### Commits Panel
+
+The Commits panel shows a ***list of commits in the current branch***, which allows you to view, checkout, or interact with (view/undo/etc.) specific commits.
 
 --
 
-## FTP & File Transfer
+### Stashes Panel
 
-| Command | Description |
-|--------|-------------|
-| ftp host | Connect to an FTP server |
-| sftp user@host | Connect securely via SFTP |
-| scp file user@host:/path | Copy file to remote server |
-| scp user@host:/file ./ | Copy file from remote server |
-| rsync -avz file user@host:/path | Sync file/directory over SSH |
-| rsync -avz user@host:/path ./ | Download file/directory via rsync |
-| mput *.txt | Upload multiple files in FTP |
-| mget *.txt | Download multiple files in FTP |
-| put file.txt | Upload file in FTP |
-| get file.txt | Download file in FTP |
-| bye | Exit FTP session |
+The Stashes panel ***helps you manage your stashed changes***, allowing you to apply, drop, or view them. Git stash is a location for storing uncommitted changes (modified, staged, or untracked files) in a hidden place, letting you switch branches without committing or discarding them.
 
 --
 
-## Shortcuts
-| Command | Description |
-| --- | --- |
-| Ctrl + C | Cancel current command |
-| Ctrl + D | Exit terminal or virtual env |
-| Ctrl + L | Clear terminal screen |
-| ↑ / ↓ | Navigate command history |
-| Tab | Autocomplete files or commands |
-| !! | Repeat last command |
-| Ctrl+ | Move by word instead of character |
+### Preview Panel
+
+The preview panel lets you ***preview unstaged changes, commits, logs, file content***, and so on in Lazygit.
 
 --
 
-## Git Essentials - Part 1
-| Command | Description |
-| --- | --- |
-| git init | Initialize a new Git repository |
-| git config --global user.name/email | Set global Git username/email |
-| git clone <url> | Clone a remote repository |
-| git status | Check status of working directory |
-| git add <file> | Stage changes for commit |
-| git add . | Stage all changes |
-| git diff | Shows unstaged changes |
-| git diff --staged | Shows staged changes |
-| git diff HEAD | Shows changes since last commit |
-| git diff commit1 commit2 | Shows changes between commits |
-| git diff branch1 branch2 | Shows changes between branches |
-| git commit -m 'msg' | Commit staged changes with message |
-| git commit --amend | Edit and replace the most recent commit. |
+## Navigation Between Panels
+
+To switch between panels, use the **left** and **right** arrow keys or the specific keybindings displayed at the top of each panel.
+
+Shortcut keys for navigation:
+
+- ***1*** – Status panel  
+- ***2*** – Files panel  
+- ***3*** – Branches panel  
+- ***4*** – Commits panel  
+- ***5*** – Stash panel  
 
 --
 
-## Git Essentials - Part 2
+## Shortcuts and Key Mappings in Lazygit
 
-| Command | Description |
-| --- | --- |
-| git log | View commit history |
-| git branch | List branches |
-| git checkout <branch> | Switch to branch |
-| git checkout -b <branch> | Create and switch to new branch |
-| git merge <branch> | Merge branch into current |
-| git pull | Fetch and merge from remote |
-| git push | Push local commits to remote |
-| git remote -v | List remote connections |
-| git restore  <file> | Restore a file to its last commited state |
-| git reset --soft HEAD~1 | Undo the last commit, keep changes staged |
-| git stash | Temporarily save uncommited changes |
-| git stash pop | Apply and remove the most recent stash |
+Lazygit is especially popular because of its shortcuts. You don’t need to write the same Git commands in the terminal over and over. Rather, you just need to use a shortcut.
+
+For example, usually when you commit a file, you’ll first add the file using ***git add*** and then commit the file using ***git commit***.  
+But in Lazygit, you just have to select the file using your mouse or the up and down keys and press ***space*** to stage the file.
+
+--
+
+### Shortcuts
+
+-  ***a***  – Stage or unstage **all** files in the Files panel  
+-  ***space*** (Files panel) – Stage or unstage a **single** file  
+- ***c*** – Commit staged changes (opens commit message editor)  
+- ***P*** – Push commits to the remote repository  
+- ***p*** – Pull changes from the remote repository  
+- ***z*** – Undo the last commit  
+- ***s*** – Stash changes  
+- ***S*** – View/apply stashed changes  
+- ***n*** – Create a new branch  
+- ***d*** – Delete a branch (or discard file changes, context-dependent)  
+- ***y*** – Copy to clipboard (file name, path, commit hash, etc.)  
+- ***M*** – Merge selected branch into current  
+- ***space*** (Branches panel) – Check out selected branch  
+- ***e*** – Open file in external editor  
+- ***q*** – Quit Lazygit  
+- ***?*** – Open keybindings menu
+
+--
+
+## How to Commit a File
+
+1. Select the file by pressing ***space***, ***a***, or ***double-clicking*** on it.  
+2. Press ***c*** to open the commit message panel.  
+3. Add your commit message.  
+4. Press ***Enter*** to commit the changes.
+
+--
+
+## How to Push and Pull Code
+
+- Press ***p*** (lowercase) to **pull** remote code from the Git server.  
+- Press ***P*** (uppercase) to **push** local commits to the Git server.
+
+--
+
+## How to Create and Delete a Branch
+
+### Create a Branch
+
+1. Select the **Branches** panel.  
+2. Press ***n***.  
+3. Enter the name of the new branch.  
+4. Press ***Enter***.
+
+### Delete a Branch
+
+1. Select the **Branches** panel.  
+2. Press ***d***.  
+3. Choose whether to delete the branch locally or remotely.
+
+> **Note:** You must be in the Branches panel for ***n*** and ***d*** to work for branch creation/deletion.
+
+--
+
+## How to Undo a Commit
+
+1. Press ***z***.  
+2. A new panel will open with the commit to undo.  
+3. Press ***Enter*** to confirm.
+
+--
+
+## How to Merge a Branch
+
+1. Press ***M*** (uppercase).  
+2. Choose the merge type:
+   - **Merge**: Standard merge preserving commit history  
+   - **Squash Merge**: Combines all commits into one  
+   - **Squash and Leave Uncommitted**: Same as above, but leaves changes uncommitted  
+1. Press ***Enter*** to execute the merge.
+
+--
+
+## How to Resolve Merge Conflicts
+
+1. Perform a merge using ***M***.  
+2. If conflicts occur, the affected files will appear in the Files panel.  
+3. Select the conflicted file and press ***Enter*** to open the merge view.  
+4. Use the arrow keys to navigate between conflicts.  
+5. Press ***space*** to choose the correct resolution.
+
+--
+
+## How to Discard Changes
+
+- To discard or drop changes in a file or commit, press ***d***.
+
+--
+
+## How to Copy Information
+
+1. Select the file or commit you want to copy from.  
+2. Press ***y*** to copy the desired value (hash, message, path, etc.) to the clipboard.
+
+--
+
+## Other Keybindings in Lazygit
+
+There are many more keybindings available in Lazygit.
+
+To view all available shortcuts:
+
+- Press ***?***  to open the keybinding help menu.
+
+> The help menu updates depending on which panel you are currently in.
 
 ---
 
