@@ -200,6 +200,8 @@ git clone ssh_key
 </code></pre>
 - You can open the file we cloned in VS Code and work on it.
 
+- If you want to push the changes to GitHub go to [slide 18](#/3/7)
+
 --
 
 # Option 2. Create a File locally and push to GitHub
