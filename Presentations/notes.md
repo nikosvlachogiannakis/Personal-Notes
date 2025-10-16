@@ -36,8 +36,9 @@ Nikos Vlachogiannakis, 2025
 
 3. [<span style="color:darkred">Create a Project with Poetry</span>](#/4)
     - [Option 1: Use Poetry on Existing Project](#/4/2)
-    - [Option 2: Create New Project with Poetry](#/4/3)
-    - [Additional Information](#/4/7)
+    - [Option 2: Create New Project with Poetry](#/4/4)
+    - [Virtual Environment: When, How, Why](#/4/8)
+    - [Additional Information](#/4/19)
 4. [<span style="color:darkred">Advanced Workflow</span>](#/5)
     - [Organized Python Project with pre-commit, formatters & linters](#/5/1)
     - [Documentation with Sphinx](#/5/10)
@@ -508,6 +509,72 @@ poetry init
   - You already have an existing Python project, and just want to manage it with Poetry.
   - You don’t want Poetry to scaffold a whole new layout.
 
+## <span style="color:darkred">Look at the next slide for more information $\downarrow$</span>
+
+--
+
+<div style="display: flex; text-align: left; width: 84vw; margin-left: -14vw;">
+
+<div style="flex: 1;">
+
+- It asks you the following questions in order to write them into  
+the `.toml` file.
+
+<pre><code style="max-height: none; overflow: visible;" class="language-toml" data-trim>
+Package name [my_project]:
+> (press Enter to accept default or type a name)
+
+Version [0.1.0]:
+> (press Enter unless you want a custom version)
+
+Description []:
+> Short description of your project
+
+Author [Your Name <you@example.com>, n to skip]:
+> (press Enter to accept or 'n' to skip)
+
+License []:
+> (e.g. MIT)
+
+Compatible Python versions [^3.11]:
+> (press Enter or type something like ^3.10 or >=3.9)
+
+Would you like to define your main dependencies interactively? (yes/no) [yes]
+> no (if you don’t want to add dependencies now)
+
+Would you like to define your development dependencies interactively? (yes/no) [yes]
+> no (unless you want to add dev tools like pytest, black, etc.)
+</code></pre>
+
+</div>
+
+<div style="flex: 1;">
+
+- At the end, the `pyproject.toml` file will look  
+like this:
+
+<pre><code style="max-height: none; overflow: visible; margin-right: 10vw;" class="language-toml" data-trim>
+[tool.poetry]
+name = "my_project"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "my_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+</code></pre>
+
+</div>
+
+</div>
+
 --
 
 ## Option 2. Create a New Project with Poetry From Scratch
@@ -529,6 +596,8 @@ my_project/
 │   └── test_my_project.py
 ├── pyproject.toml
 ```
+
+### <span style="color:darkred">Note: If you want to set up pyproject.toml by yourself, run poetry init like above</span>
 
 ### $\circ$ Move Into the Project Directory
 
@@ -602,6 +671,193 @@ OR
 ```bash
 exit
 ```
+
+--
+
+# General Information about Virtual Environment
+
+## Understanding Virtual Environments
+
+A **virtual environment** (or **venv**) is an *isolated workspace* where your project’s Python packages live.
+
+Each environment:
+- Has its **own Python interpreter**  
+- Has its **own installed libraries**  
+- Keeps dependencies **separate** from other projects and from the global system Python  
+
+This prevents “dependency hell” — when one project needs `requests==2.25` and another needs `requests==2.32`.
+
+--
+
+# When and Why to Activate a Virtual Environment
+
+## ✅ **When to Activate**
+You should **activate** a virtual environment whenever you:
+1. **Work inside a specific project**  
+   → to make sure you’re using the correct dependencies and Python version.  
+2. **Run scripts, tests, or REPL sessions** for that project.  
+3. **Install new dependencies** (with Poetry or pip) that should belong only to that project.
+
+### ❌ **When Not Needed**
+You don’t need to activate the venv when:
+- You’re **just browsing** files or editing docs (no Python code execution).
+- You’re using a **tool** that handles it automatically (e.g., VS Code with Poetry support often detects it automatically).
+
+--
+
+# Activating Poetry’s Virtual Environment
+
+Poetry automatically manages environments for each project.  
+You have two main ways to work inside it.
+
+--
+
+# Option 1: Start a Shell Inside the Environment
+This is the **most common and recommended** way.
+
+```bash
+poetry shell
+```
+
+You’ll see your prompt change to something like:
+```bash
+(.venv) user@machine my_project %
+```
+
+Now you’re **inside the environment**, meaning:
+- `python` and `pip` refer to the project’s environment
+- You can run scripts, tests, etc.
+- You can install packages (e.g. `poetry add requests`)
+
+--
+
+# Option 2: Run a Command Directly Inside the Environment
+You can run commands *without opening a shell* by prefixing them with `poetry run`.
+
+Examples:
+
+```bash
+poetry run python main.py
+poetry run pytest
+poetry run pre-commit run --all-files
+```
+
+This is perfect for automation or CI/CD scripts.
+
+--
+
+# How to Deactivate (Close) the Virtual Environment
+
+If you used `poetry shell`, simply exit with:
+
+```bash
+exit
+```
+or
+```bash
+deactivate
+```
+or press  
+**Ctrl + D**
+
+Your shell prompt will go back to normal, and you’ll be outside the environment.
+
+> You don’t delete or lose the environment by doing this — you’re just leaving it.
+
+--
+
+# Where Poetry Keeps Virtual Environments
+
+By default, Poetry stores environments in a **central cache directory**, for example:
+
+- **Linux/macOS:** `~/.cache/pypoetry/virtualenvs/`
+- **Windows:** `%APPDATA%\pypoetry\virtualenvs\`
+
+If you prefer to keep it *inside your project folder* (so it’s easier to see), run this once:
+
+```bash
+poetry config virtualenvs.in-project true
+```
+
+Then next time you run `poetry install` or `poetry shell`, Poetry will create:
+
+```
+my_project/
+├── .venv/
+├── pyproject.toml
+└── ...
+```
+
+--
+
+# Checking Which Environment You’re In
+
+You can always verify:
+
+```bash
+poetry env info
+```
+
+Output example:
+
+```text
+Virtualenv
+Python:         3.11.5
+Path:           /home/user/my_project/.venv
+Executable:     /home/user/my_project/.venv/bin/python
+```
+
+--
+
+# When to Recreate or Remove a Virtual Environment
+
+If dependencies get messed up or you want a fresh start:
+
+```bash
+poetry env remove python
+poetry install
+```
+
+This removes and recreates the environment cleanly from `pyproject.toml`.
+
+--
+
+# Summary
+
+| Task                              | Command                                     | When to Use                        |
+| --------------------------------- | ------------------------------------------- | ---------------------------------- |
+| Activate venv (interactive shell) | `poetry shell`                              | Work inside your project manually  |
+| Exit venv                         | `exit` or `Ctrl + D` or `deactivate`        | When you’re done working           |
+| Run one command in venv           | `poetry run <command>`                      | For scripts or automation          |
+| Show info about venv              | `poetry env info`                           | Debug or verify active environment |
+| Delete venv                       | `poetry env remove python`                  | Reset environment                  |
+| Create venv inside project folder | `poetry config virtualenvs.in-project true` | Keep venv local to project         |
+
+--
+
+# Everyday Workflow Example
+
+```bash
+# 1️⃣ Go to your project
+cd my_project
+
+# 2️⃣ Activate Poetry environment
+poetry shell
+
+# 3️⃣ Run tests or scripts
+pytest
+python main.py
+
+# 4️⃣ Add a dependency
+poetry add requests
+
+# 5️⃣ Deactivate when done
+exit
+```
+
+**In short:**
+Activate your Poetry virtual environment **whenever you’re working on your project**  
+and close it **when you’re done** — just like opening and closing a dedicated workspace.
 
 --
 
